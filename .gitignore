@@ -1,0 +1,17 @@
+.dart_tool/
+.flutter-plugins*
+build/
+android/local.properties
+ios/Pods/
+ios/.symlinks/
+*.iml
+.idea/
+.tools/
+/sync-async-lab/
+/sync-async-lab.tar.gz
+.env
+.env.*
+*.jks
+*.keystore
+*.p12
+android/key.properties

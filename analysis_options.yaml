@@ -1,0 +1,7 @@
+analyzer:
+  exclude:
+    - .tools/**
+    - build/**
+    - android/**
+    - ios/**
+    - web/**

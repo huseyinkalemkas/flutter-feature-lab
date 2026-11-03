@@ -1,0 +1,30 @@
+name: deep_link_demo
+description: Flutter routing, media, storage, animation and network feature lab.
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: '>=3.13.0 <4.0.0'
+dependencies:
+  audioplayers: ^6.8.1
+  auto_route: ^11.2.0
+  file_picker: 10.3.10
+  flutter:
+    sdk: flutter
+  go_router: 14.8.1
+  hive_ce_flutter: ^2.5.0
+  internet_connection_checker_plus: ^3.1.2
+  lottie: ^3.8.2
+  path: ^1.9.1
+  pdfrx: ^2.11.0
+  shared_preferences: ^2.5.6
+  sqflite: ^2.4.5
+  sqflite_common_ffi_web: ^1.2.0
+dev_dependencies:
+  auto_route_generator: ^10.6.0
+  build_runner: ^2.16.1
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/animations/
