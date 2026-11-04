@@ -122,6 +122,18 @@ class AppControlBanner extends StatelessWidget {
     ),
     ('/app-info', 'App Info', 'Uygulama bilgileri', Icons.apps_outlined),
     ('/network-info', 'Network Info', 'Ağ bilgileri', Icons.wifi_find_rounded),
+    (
+      '/mvvm-dashboard',
+      'MVVM Finans',
+      'MVVM para birimi ve haber örneği',
+      Icons.dashboard_customize_outlined,
+    ),
+    (
+      '/image-precache',
+      'Image Precache',
+      'Base64, S3 ve görsel cache yardımcısı',
+      Icons.image_search_outlined,
+    ),
     ('/demo', 'Route örnekleri', 'Route örnekleri', Icons.science_outlined),
     ('/profile/ayse', 'Profil', 'Profil', Icons.person_outline),
   ];

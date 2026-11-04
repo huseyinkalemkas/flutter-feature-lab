@@ -611,6 +611,26 @@ class NetworkInfoRoute extends PageRouteInfo<void> {
   );
 }
 
+class MvvmDashboardRoute extends PageRouteInfo<void> {
+  const MvvmDashboardRoute({List<PageRouteInfo>? children})
+    : super(MvvmDashboardRoute.name, initialChildren: children);
+  static const String name = 'MvvmDashboardRoute';
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) => const MvvmDashboardPage(),
+  );
+}
+
+class ImagePrecacheHelperRoute extends PageRouteInfo<void> {
+  const ImagePrecacheHelperRoute({List<PageRouteInfo>? children})
+    : super(ImagePrecacheHelperRoute.name, initialChildren: children);
+  static const String name = 'ImagePrecacheHelperRoute';
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) => const ImagePrecacheHelperPage(),
+  );
+}
+
 /// generated route for
 /// [SyncAsyncPage]
 class SyncAsyncRoute extends PageRouteInfo<void> {

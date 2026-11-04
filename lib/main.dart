@@ -17,6 +17,8 @@ import 'app_banner.dart';
 import 'sync_async.dart';
 import 'network_lab.dart';
 import 'info_pages.dart';
+import 'mvvm/views/mvvm_dashboard_page.dart';
+import 'image_precache_helper.dart';
 
 part 'main.gr.dart';
 
@@ -103,6 +105,8 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: DeviceInfoRoute.page, path: '/device-info'),
     AutoRoute(page: AppInfoRoute.page, path: '/app-info'),
     AutoRoute(page: NetworkInfoRoute.page, path: '/network-info'),
+    AutoRoute(page: MvvmDashboardRoute.page, path: '/mvvm-dashboard'),
+    AutoRoute(page: ImagePrecacheHelperRoute.page, path: '/image-precache'),
     AutoRoute(page: AnimationPreviewRoute.page, path: '/animation-preview'),
     AutoRoute(page: PaginationRoute.page, path: '/project-list'),
     AutoRoute(page: ProjectRoute.page, path: '/projects/:projectId'),
@@ -151,6 +155,14 @@ go.GoRouter createGoRouter({String? initialLocation}) => go.GoRouter(
         animatedGoRoute(
           path: 'network-info',
           builder: (_, __) => const NetworkInfoPage(),
+        ),
+        animatedGoRoute(
+          path: 'mvvm-dashboard',
+          builder: (_, __) => const MvvmDashboardPage(),
+        ),
+        animatedGoRoute(
+          path: 'image-precache',
+          builder: (_, __) => const ImagePrecacheHelperPage(),
         ),
         animatedGoRoute(
           path: 'hive-example',
