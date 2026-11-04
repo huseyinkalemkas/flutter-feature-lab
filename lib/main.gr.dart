@@ -574,6 +574,44 @@ class StreamExampleRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [NetworkLabPage]
+class NetworkLabRoute extends PageRouteInfo<void> {
+  const NetworkLabRoute({List<PageRouteInfo>? children})
+    : super(NetworkLabRoute.name, initialChildren: children);
+
+  static const String name = 'NetworkLabRoute';
+
+  static PageInfo page = PageInfo(name, builder: (data) => NetworkLabPage());
+}
+
+class DeviceInfoRoute extends PageRouteInfo<void> {
+  const DeviceInfoRoute({List<PageRouteInfo>? children})
+    : super(DeviceInfoRoute.name, initialChildren: children);
+  static const String name = 'DeviceInfoRoute';
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) => const DeviceInfoPage(),
+  );
+}
+
+class AppInfoRoute extends PageRouteInfo<void> {
+  const AppInfoRoute({List<PageRouteInfo>? children})
+    : super(AppInfoRoute.name, initialChildren: children);
+  static const String name = 'AppInfoRoute';
+  static PageInfo page = PageInfo(name, builder: (data) => const AppInfoPage());
+}
+
+class NetworkInfoRoute extends PageRouteInfo<void> {
+  const NetworkInfoRoute({List<PageRouteInfo>? children})
+    : super(NetworkInfoRoute.name, initialChildren: children);
+  static const String name = 'NetworkInfoRoute';
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) => const NetworkInfoPage(),
+  );
+}
+
+/// generated route for
 /// [SyncAsyncPage]
 class SyncAsyncRoute extends PageRouteInfo<void> {
   const SyncAsyncRoute({List<PageRouteInfo>? children})

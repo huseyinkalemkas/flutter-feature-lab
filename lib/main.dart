@@ -15,6 +15,8 @@ import 'animation_lab.dart';
 import 'network.dart';
 import 'app_banner.dart';
 import 'sync_async.dart';
+import 'network_lab.dart';
+import 'info_pages.dart';
 
 part 'main.gr.dart';
 
@@ -97,6 +99,10 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: PreferencesExampleRoute.page, path: '/preferences-example'),
     AutoRoute(page: SqliteExampleRoute.page, path: '/sqlite-example'),
     AutoRoute(page: StreamExampleRoute.page, path: '/stream-example'),
+    AutoRoute(page: NetworkLabRoute.page, path: '/network-lab'),
+    AutoRoute(page: DeviceInfoRoute.page, path: '/device-info'),
+    AutoRoute(page: AppInfoRoute.page, path: '/app-info'),
+    AutoRoute(page: NetworkInfoRoute.page, path: '/network-info'),
     AutoRoute(page: AnimationPreviewRoute.page, path: '/animation-preview'),
     AutoRoute(page: PaginationRoute.page, path: '/project-list'),
     AutoRoute(page: ProjectRoute.page, path: '/projects/:projectId'),
@@ -128,6 +134,23 @@ go.GoRouter createGoRouter({String? initialLocation}) => go.GoRouter(
         animatedGoRoute(
           path: 'stream-example',
           builder: (_, __) => const StreamExamplePage(),
+        ),
+        animatedGoRoute(
+          path: 'network-lab',
+          builder: (context, __) =>
+              NetworkLabPage(onHome: () => DemoNavigation.home(context)),
+        ),
+        animatedGoRoute(
+          path: 'device-info',
+          builder: (_, __) => const DeviceInfoPage(),
+        ),
+        animatedGoRoute(
+          path: 'app-info',
+          builder: (_, __) => const AppInfoPage(),
+        ),
+        animatedGoRoute(
+          path: 'network-info',
+          builder: (_, __) => const NetworkInfoPage(),
         ),
         animatedGoRoute(
           path: 'hive-example',
@@ -691,6 +714,15 @@ void showAppSettings(BuildContext context) {
               TextButton.icon(
                 onPressed: () {
                   Navigator.pop(dialogContext);
+                  DemoNavigation.openLink(context, '/network-lab');
+                },
+                icon: const Icon(Icons.hub_outlined),
+                label: const Text('Socket + HTTP Lab aç'),
+              ),
+              const SizedBox(height: 12),
+              TextButton.icon(
+                onPressed: () {
+                  Navigator.pop(dialogContext);
                   DemoNavigation.openLink(context, '/demo');
                 },
                 icon: const Icon(Icons.science_outlined),
@@ -720,8 +752,18 @@ class WorkspacePage extends StatelessWidget {
     onAnimations: () => DemoNavigation.animationLab(context),
     onSyncAsync: () => DemoNavigation.openLink(context, '/sync-async'),
     onStorageExample: (path) => DemoNavigation.openLink(context, path),
+    onNetworkLab: () => DemoNavigation.openLink(context, '/network-lab'),
     onSettings: () => showAppSettings(context),
   );
+}
+
+@RoutePage()
+class NetworkLabPage extends StatelessWidget {
+  final VoidCallback? onHome;
+  const NetworkLabPage({super.key, this.onHome});
+  @override
+  Widget build(BuildContext context) =>
+      NetworkLabScreen(onHome: onHome ?? () => DemoNavigation.home(context));
 }
 
 @RoutePage()

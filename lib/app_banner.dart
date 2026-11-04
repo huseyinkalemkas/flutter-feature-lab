@@ -108,6 +108,20 @@ class AppControlBanner extends StatelessWidget {
       'Stream / StreamBuilder',
       Icons.sensors,
     ),
+    (
+      '/network-lab',
+      'Socket + HTTP',
+      'TCP soketi ve HTTP laboratuvarı',
+      Icons.hub_outlined,
+    ),
+    (
+      '/device-info',
+      'Device Info',
+      'Cihaz bilgileri',
+      Icons.phone_android_outlined,
+    ),
+    ('/app-info', 'App Info', 'Uygulama bilgileri', Icons.apps_outlined),
+    ('/network-info', 'Network Info', 'Ağ bilgileri', Icons.wifi_find_rounded),
     ('/demo', 'Route örnekleri', 'Route örnekleri', Icons.science_outlined),
     ('/profile/ayse', 'Profil', 'Profil', Icons.person_outline),
   ];
@@ -169,36 +183,31 @@ class AppControlBanner extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: SingleChildScrollView(
+                  child: Wrap(
                     key: const Key('banner-navigation'),
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        for (final destination in destinations)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 6),
-                            child: Tooltip(
-                              message: destination.$3,
-                              child: TextButton.icon(
-                                style: TextButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  backgroundColor:
-                                      currentPath == destination.$1 ||
-                                          (destination.$1 == '/' &&
-                                              currentPath.startsWith(
-                                                '/projects/',
-                                              ))
-                                      ? accent
-                                      : null,
-                                ),
-                                onPressed: () => onNavigate(destination.$1),
-                                icon: Icon(destination.$4, size: 18),
-                                label: Text(destination.$2),
-                              ),
+                    spacing: 4,
+                    runSpacing: 2,
+                    children: [
+                      for (final destination in destinations)
+                        Tooltip(
+                          message: destination.$3,
+                          child: TextButton.icon(
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.white,
+                              visualDensity: VisualDensity.compact,
+                              backgroundColor:
+                                  currentPath == destination.$1 ||
+                                      (destination.$1 == '/' &&
+                                          currentPath.startsWith('/projects/'))
+                                  ? accent
+                                  : null,
                             ),
+                            onPressed: () => onNavigate(destination.$1),
+                            icon: Icon(destination.$4, size: 18),
+                            label: Text(destination.$2),
                           ),
-                      ],
-                    ),
+                        ),
+                    ],
                   ),
                 ),
               ],

@@ -22,6 +22,7 @@ class WorkspaceScreen extends StatefulWidget {
   final VoidCallback onAnimations;
   final VoidCallback onSyncAsync;
   final ValueChanged<String>? onStorageExample;
+  final VoidCallback? onNetworkLab;
   const WorkspaceScreen({
     super.key,
     required this.onOpenProject,
@@ -30,6 +31,7 @@ class WorkspaceScreen extends StatefulWidget {
     required this.onAnimations,
     required this.onSyncAsync,
     this.onStorageExample,
+    this.onNetworkLab,
   });
   @override
   State<WorkspaceScreen> createState() => _WorkspaceScreenState();
@@ -132,6 +134,18 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> {
                     onTap: widget.onStorageExample == null
                         ? null
                         : () => widget.onStorageExample!('/stream-example'),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.hub_outlined, color: accent),
+                    title: const Text('Socket + HTTP Lab'),
+                    subtitle: const Text(
+                      'TCP soketi üzerinden HTTP isteği gönder',
+                    ),
+                    trailing: const Icon(Icons.arrow_forward),
+                    onTap: widget.onNetworkLab,
                   ),
                 ),
                 const SizedBox(height: 16),
