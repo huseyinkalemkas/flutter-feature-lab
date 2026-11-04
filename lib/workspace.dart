@@ -123,6 +123,18 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> {
                   ],
                 ),
                 const SizedBox(height: 24),
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.sensors, color: accent),
+                    title: const Text('Stream / StreamBuilder'),
+                    subtitle: const Text('Canlı veri akışı örneğini aç'),
+                    trailing: const Icon(Icons.arrow_forward),
+                    onTap: widget.onStorageExample == null
+                        ? null
+                        : () => widget.onStorageExample!('/stream-example'),
+                  ),
+                ),
+                const SizedBox(height: 16),
                 TextField(
                   decoration: const InputDecoration(
                     hintText: 'Proje veya müşteri ara',
